@@ -1,0 +1,228 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[T2A]{fontenc} %поддержка кириллицы
+\usepackage[utf8]{inputenc} %кодировка текста: koi8-r или utf8 в UNIX, cp1251 в Windows
+\usepackage[english,russian]{babel} 
+\usepackage[left=2cm,right=1.5cm,top=2cm,bottom=2cm]{geometry} 
+\usepackage{tabularx} 
+\usepackage{graphicx} 
+\usepackage{amsmath} %отображение математической нотации
+\usepackage{float}
+\usepackage{caption, subcaption} %подписи
+%\usepackage{array}
+%\usepackage{amsmath,booktabs}
+\usepackage{indentfirst}%отступ вначале параграфа
+\usepackage{threeparttable}
+\captionsetup[table]{labelsep = endash, singlelinecheck=false}
+\captionsetup[figure]{name = Рисунок, labelformat=simple, labelsep = endash}
+
+\begin{document}
+
+\include{title}
+
+\paragraph{Цель работы:}Изучение частотных характеристик типовых динамических звеньев и способов их построения.%*-без нумерации
+\paragraph{Исходные данные.}
+\begin{table}[h!]
+	\renewcommand{\arraystretch}{1.8} %строки
+	\centering
+	\begin{threeparttable}
+	\caption{Исходные динамические звенья.}
+	\begin{tabular}{|c|c|}
+		\hline Тип звена & Передаточная функция\\
+		\hline Апериодическое звено 1-го порядка & $W(s) = \displaystyle{\frac{k}{Ts + 1}}$ \\
+		\hline Изодромное & $W(s) = \displaystyle{\frac{k(1+Ts)}{s}}$ \\
+		\hline Консервативное & $W(s) = \displaystyle{\frac{k}{1+T^2*s^2}}$ \\
+		\hline
+	\end{tabular}
+	\end{threeparttable}
+\end{table} 
+\par Параметры исследуемых звеньев: k=2, T=0.5
+
+\newpage
+\begin{center}
+\section{Апериодическое звено 1-го порядка}
+\end{center}
+
+В таблице 2 представлены данные при исследовании апериодического звена 1-го порядка.
+\begin{table}[h!]
+	\renewcommand{\arraystretch}{1.8} %строки
+	\centering
+	\begin{threeparttable}
+	\caption{Экспериментальные данные для апериодического звена 1-го порядка}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline $\omega$, рад/с & $lg\omega$ & $A(\omega)$ & $L(\omega)=20lgA(\omega)$ & $\psi(\omega)$, град\\
+		\hline 0,2 & -2,32 & 2 & 20 & -0,1\\
+		\hline 0,3 & -1,74 & 2 & 20 & -0,15\\
+		\hline 0,5 & -1 & 1,9 & 18,52 & -0,25\\
+		\hline 1 & 0 & 1,8 & 16,96 & -0,5\\
+		\hline 1,5 & 0,58 & 1,65 & 14,45 & -0,81\\
+		\hline 2 & 1 & 1,5 & 11,69 & -0,9\\
+		\hline 3 & 1,58 & 1,25 & 6,44 & -0,9\\
+		\hline 5 & 2,32 & 0,9 & -3,04 & -1,25\\
+		\hline 10 & 3,32 & 0,6 & -14,74 & -2\\
+		\hline 15 & 3,9 & 0,45 & -23,04 & -2,25\\
+		\hline 20 & 4,32 & 0,35 & -30,24 & -2\\
+		\hline
+	\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+На рисунках 1-6 представлены частотные характеристики апериодического звена 1-го порядка.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{1-a-w.eps}
+	\caption{АЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{1-psi-w.eps}
+	\caption{ФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{1-l-lg.eps}
+	\caption{ЛАЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{1-psi-lg.eps}
+	\caption{ЛФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{1-nyquist.eps}
+	\caption{АФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{1-end.eps}
+	\caption{Асимптотическая ЛАЧХ}
+\end{figure}
+
+\newpage
+\begin{center}
+\section{Изодромное звено}
+\end{center}
+
+В таблице 3 представлены данные при исследовании изодромного звена.
+\begin{table}[h!]
+	\renewcommand{\arraystretch}{1.8} %строки
+	\centering
+	\begin{threeparttable}
+	\caption{Экспериментальные данные для изодромного звена}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline $\omega$, рад/с & $lg\omega$ & $A(\omega)$ & $L(\omega)=20lgA(\omega)$ & $\psi(\omega)$, град\\
+		\hline 0,2 & -2,32 & 20 & 86,44 & -3,5\\
+		\hline 0,3 & -1,74 & 13,5 & 75,09 & -2,85\\
+		\hline 0,5 & -1 & 8,2 & 60,71 & -2,625\\
+		\hline 1 & 0 & 4,5 & 43,39 & -2,25\\
+		\hline 1,5 & 0,58 & 3 & 31,69 & -1,8\\
+		\hline 2 & 1 & 2,4 & 20 & -1,6\\
+		\hline 3 & 1,58 & 1,8 & 16,96 & -0,9\\
+		\hline 5 & 2,32 & 1,5 & 11,69 & -0,75\\
+		\hline 10 & 3,32 & 1,25 & 6,44 & -0,4\\
+		\hline 15 & 3,9 & 1,2 & 5,26 & -0,3\\
+		\hline 20 & 4,32 & 1,1 & 2,75 & -0,2\\
+		\hline
+	\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+На рисунках 8-13 представлены частотные характеристики изодромного звена.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{2-a-w.eps}
+	\caption{АЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{2-psi-w.eps}
+	\caption{ФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{2-l-lg.eps}
+	\caption{ЛАЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{2-psi-lg.eps}
+	\caption{ЛФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{2-nyquist.eps}
+	\caption{АФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{2-end.eps}
+	\caption{Асимптотическая ЛАЧХ}
+\end{figure}
+
+\newpage
+\begin{center}
+\section{Консервативное звено}
+\end{center}
+
+В таблице 4 представлены данные при исследовании консервативного звена.
+\begin{table}[h!]
+	\renewcommand{\arraystretch}{1.8} %строки
+	\centering
+	\begin{threeparttable}
+	\caption{Экспериментальные данные для консервативного звена}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline $\omega$, рад/с & $lg\omega$ & $A(\omega)$ & $L(\omega)=20lgA(\omega)$ & $\psi(\omega)$, град\\
+		\hline 0,2 & -2,32 & 2,25 & 23,39 & 0\\
+		\hline 0,3 & -1,74 & 2,35 & 24,65 & -0,15\\
+		\hline 0,5 & -1 & 2,5 & 26,44 & 0\\
+		\hline 1 & 0 & 3,5 & 36,15 & 0\\
+		\hline 1,5 & 0,58 & 7,75 & 59,08 & -0,75\\
+		\hline 2 & 1 & - & - & -\\
+		\hline 3 & 1,58 & 3,75 & 38,14 & -2,25\\
+		\hline 5 & 2,32 & 1,75 & 16,14 & -3,875\\
+		\hline 10 & 3,32 & 0,4 & -26,44 & -12\\
+		\hline 15 & 3,9 & 0,3 & -34,74 & -21\\
+		\hline 20 & 4,32 & 0,22 & -43,69 & -29\\
+		\hline
+	\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+На рисунках 14-19 представлены частотные характеристики консервативного звена.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{3-a-w.eps}
+	\caption{АЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{3-psi-w.eps}
+	\caption{ФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{3-l-lg.eps}
+	\caption{ЛАЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{3-psi-lg.eps}
+	\caption{ЛФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{3-nyquist.eps}
+	\caption{АФЧХ}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{3-end.eps}
+	\caption{Асимптотическая ЛАЧХ}
+\end{figure}
+
+\newpage
+\section*{Вывод}
+В ходе лабораторной работы были изучены частотные и логарифмические частотные характеристики типовых динамических звеньев: апериодического звена 1-го порядка, изодромного и консервативного звеньев.
+Сравнивая графики ЛАЧХ и асимптотической ЛАЧХ, можно заметить, что асимптотические ЛАЧХ сходятся к реальным ЛАЧХ, и с их помощью удобно проводить синтез систем управления.\par
+\end{document}
